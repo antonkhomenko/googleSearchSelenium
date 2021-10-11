@@ -12,11 +12,12 @@ public class GoogleSearch {
        PageFactory.initElements(driver, this);
        this.driver = driver;
        this.driver.get(url);
-       this.driver.manage().window().maximize();
+       //this.driver.manage().window().maximize();
    }
 
    @FindBy(name = "q")
    private WebElement searchLine;
+
 
    @FindBy(className = "gNO89b")
    private WebElement searchBtn;
@@ -24,5 +25,9 @@ public class GoogleSearch {
    public void search(String s) {
         searchLine.sendKeys(s);
         searchBtn.submit();
+   }
+
+   public WebDriver getDriver() {
+       return driver;
    }
 }
