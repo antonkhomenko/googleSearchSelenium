@@ -16,8 +16,9 @@ public class GoogleSearchTest {
 
     @Test(dependsOnMethods = "testLoadPage")
     public void searchTest() {
-        gs.search("TestNG");
-        String searchText = gs.getDriver().findElement(By.name("q")).getAttribute("value");
-        Assert.assertEquals("TestNG", searchText);
+        String searchedText = "Java";
+        gs.search(searchedText);
+        String actuallySearchedText = gs.getDriver().findElement(By.name("q")).getAttribute("value");
+        Assert.assertEquals(searchedText, actuallySearchedText);
     }
 }

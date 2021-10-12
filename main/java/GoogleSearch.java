@@ -1,5 +1,7 @@
+import org.checkerframework.checker.units.qual.C;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
@@ -22,9 +24,11 @@ public class GoogleSearch {
    @FindBy(className = "gNO89b")
    private WebElement searchBtn;
 
-   public void search(String s) {
+   public GoogleSearch search(String s) {
+       GoogleSearch gs = new GoogleSearch(driver);
         searchLine.sendKeys(s);
         searchBtn.submit();
+        return gs;
    }
 
    public WebDriver getDriver() {
